@@ -1,0 +1,3 @@
+[submodule "03-frontend/angular-ecommerce"]
+	path = 03-frontend/angular-ecommerce
+	url = https://github.com/ChristCrom/Ecommerce-Project.git
