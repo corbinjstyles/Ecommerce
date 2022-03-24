@@ -1,8 +1,13 @@
 package com.hcl.springbootecommerce.config;
 
+import javax.xml.ws.Response;
+
+import com.okta.spring.boot.oauth.Okta;
+
 import org.springframework.context.annotation.Configuration;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.config.annotation.web.configuration.WebSecurityConfigurerAdapter;
+
 
 @Configuration
 public class SecurityConfig extends WebSecurityConfigurerAdapter {
@@ -12,8 +17,14 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
 
         http.authorizeRequests().antMatchers("/api/orders/**").authenticated().and().oauth2ResourceServer().jwt();
 
-        http.cors();
-        
+         http.cors();
+
+         
+
+         http.csrf().disable();
+
+
+         
     }
 
     

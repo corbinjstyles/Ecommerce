@@ -2,6 +2,7 @@ import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable, of } from 'rxjs';
 import { map } from 'rxjs/operators';
+import { environment } from 'src/environments/environment';
 import { Country } from '../common/country';
 import { State } from '../common/state';
 
@@ -10,8 +11,8 @@ import { State } from '../common/state';
 })
 export class Luv2ShopFormService {
 
-  private countriesUrl= 'http://localhost:8080/api/countries';
-  private statesUrl= 'http://localhost:8080/api/states';
+  private countriesUrl= environment.HCLTechStoreUrl + '/countries';
+  private statesUrl= environment.HCLTechStoreUrl + '/states';
 
   constructor(private httpClient: HttpClient) { }
 
@@ -26,7 +27,7 @@ export class Luv2ShopFormService {
     return this.httpClient.get<GetResponseStates>(searchStatesUrl).pipe(
       map(response => response._embedded.states)
     );
-    
+
   }
 
   getCreditCardMonths(startMonth: number): Observable<number[]> {
@@ -34,7 +35,7 @@ export class Luv2ShopFormService {
 
     for(let theMonth = startMonth; theMonth <= 12; theMonth++){
       data.push(theMonth);
-      
+
     }
     return of(data);
   }

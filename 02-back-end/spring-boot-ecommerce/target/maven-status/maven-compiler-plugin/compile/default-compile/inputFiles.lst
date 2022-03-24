@@ -10,6 +10,7 @@ C:\Users\chris\OneDrive\Coding\Capstone\Ecommerce\02-back-end\spring-boot-ecomme
 C:\Users\chris\OneDrive\Coding\Capstone\Ecommerce\02-back-end\spring-boot-ecommerce\src\main\java\com\hcl\springbootecommerce\entity\OrderItem.java
 C:\Users\chris\OneDrive\Coding\Capstone\Ecommerce\02-back-end\spring-boot-ecommerce\src\main\java\com\hcl\springbootecommerce\service\CheckoutService.java
 C:\Users\chris\OneDrive\Coding\Capstone\Ecommerce\02-back-end\spring-boot-ecommerce\src\main\java\com\hcl\springbootecommerce\dao\CustomerRepository.java
+C:\Users\chris\OneDrive\Coding\Capstone\Ecommerce\02-back-end\spring-boot-ecommerce\src\main\java\com\hcl\springbootecommerce\dto\PaymentInfo.java
 C:\Users\chris\OneDrive\Coding\Capstone\Ecommerce\02-back-end\spring-boot-ecommerce\src\main\java\com\hcl\springbootecommerce\SpringBootEcommerceApplication.java
 C:\Users\chris\OneDrive\Coding\Capstone\Ecommerce\02-back-end\spring-boot-ecommerce\src\main\java\com\hcl\springbootecommerce\config\SecurityConfig.java
 C:\Users\chris\OneDrive\Coding\Capstone\Ecommerce\02-back-end\spring-boot-ecommerce\src\main\java\com\hcl\springbootecommerce\dto\Purchase.java

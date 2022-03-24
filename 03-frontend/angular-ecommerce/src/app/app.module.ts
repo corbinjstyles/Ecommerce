@@ -4,7 +4,7 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 
 import { AppComponent } from './app.component';
 import { ProductListComponent } from './components/product-list/product-list.component';
-import { HttpClientModule } from '@angular/common/http';
+import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { ProductService } from './services/product.service';
 import { Route, Router, RouterModule, Routes } from '@angular/router';
 import { ProductCategoryMenuComponent } from './components/product-category-menu/product-category-menu.component';
@@ -31,6 +31,7 @@ import {
 import myAppConfig from './config/my-app-config';
 import { MembersPageComponent } from './components/members-page/members-page.component';
 import { OrderHistoryComponent } from './components/order-history/order-history.component';
+import { AuthInterceptorService } from './services/auth-interceptor.service';
 
 const oktaConfig = Object.assign({
 onAuthRequired: (oktaAuth: any, injector: { get: (arg0: typeof Router) => any; }) => {
@@ -43,7 +44,7 @@ onAuthRequired: (oktaAuth: any, injector: { get: (arg0: typeof Router) => any; }
 const oktaAuth = new OktaAuth({
   clientId: '0oa43nbpf2qPTBzAH5d7',
         issuer: 'https://dev-8144678.okta.com/oauth2/default',
-        redirectUri: 'http://localhost:4200/login/callback',
+        redirectUri: 'https://localhost:4200/login/callback',
         scopes: ['openid', 'profile', 'email']
 });
 
@@ -85,9 +86,9 @@ const routes: Routes = [
     NgbModule,
     ReactiveFormsModule,
     OktaAuthModule,
-    
+
   ],
-  providers: [ProductService, { provide: OKTA_CONFIG, useValue: { oktaAuth } }],
+  providers: [ProductService, { provide: OKTA_CONFIG, useValue: { oktaAuth } },{provide: HTTP_INTERCEPTORS, useClass: AuthInterceptorService, multi: true}],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
