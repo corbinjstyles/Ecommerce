@@ -8,7 +8,7 @@ on:
     branches:
       - main
     paths:
-      -'02-back-end/spring-boot-ecommerce/spring-boot-ecommerce/**'
+      -'02-back-end/spring-boot-ecommerce/**'
   workflow_dispatch:
 
 jobs:
@@ -25,7 +25,7 @@ jobs:
           
       - name: Build with Maven
         run: |
-         cd 02-back-end/spring-boot-ecommerce/spring-boot-ecommerce/
+         cd 02-back-end/spring-boot-ecommerce/
          mvn clean install
 
       - name: Upload artifact for deployment job
