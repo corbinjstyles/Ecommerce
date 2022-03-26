@@ -32,7 +32,7 @@ jobs:
         uses: actions/upload-artifact@v2
         with:
           name: java-app
-          path: '${{ github.workspace }}/02-back-end/spring-boot-ecommerce/spring-boot-ecommerce/target/*.jar'
+          path: '${{ github.workspace }}/02-back-end/spring-boot-ecommerce/target/*.jar'
 
   deploy:
     runs-on: ubuntu-latest
