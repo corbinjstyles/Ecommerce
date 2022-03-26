@@ -25,7 +25,7 @@ jobs:
           
       - name: Build with Maven
         run: |
-         cd 02-backend/spring-boot-ecommerce/spring-boot-ecommerce/
+         cd 02-back-end/spring-boot-ecommerce/spring-boot-ecommerce/
          mvn clean install
 
       - name: Upload artifact for deployment job
