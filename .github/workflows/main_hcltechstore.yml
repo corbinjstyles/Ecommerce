@@ -7,7 +7,7 @@ on:
   push:
     branches:
       - main
-      paths:
+    paths:
       -'02-back-end/spring-boot-ecommerce/spring-boot-ecommerce/**'
   workflow_dispatch:
 
