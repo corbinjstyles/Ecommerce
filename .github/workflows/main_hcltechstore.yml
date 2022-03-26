@@ -22,10 +22,11 @@ jobs:
         uses: actions/setup-java@v1
         with:
           java-version: '8'
-
+          
       - name: Build with Maven
-        run: cd 02-back-end/spring-boot-ecommerce/spring-boot-ecommerce/
-             mvn clean install
+        run: |
+         cd 02-backend/spring-boot-ecommerce/spring-boot-ecommerce/
+         mvn clean install
 
       - name: Upload artifact for deployment job
         uses: actions/upload-artifact@v2
