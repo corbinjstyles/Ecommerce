@@ -27,7 +27,7 @@ jobs:
         run: |
           cd 03-frontend/angular-ecommerce
           npm install
-          npm node --max_old_space_size=4096 node_modules/@angular/cli/bin/ng build --prod
+          npm build --prod
       
           
 
