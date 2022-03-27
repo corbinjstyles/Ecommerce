@@ -27,7 +27,7 @@ jobs:
         run: |
           cd 03-frontend/angular-ecommerce
           npm install
-          npm run build --prod
+          npm run build --production
 
       - name: Upload artifact for deployment job
         uses: actions/upload-artifact@v2
