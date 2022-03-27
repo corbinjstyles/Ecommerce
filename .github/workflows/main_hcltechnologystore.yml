@@ -28,10 +28,12 @@ jobs:
           cd 03-frontend/angular-ecommerce/
           npm install
           npm run build --if-present
-
+      
+          
       - name: Zip artifact for deployment
-        run: zip release.zip ./* -r
-        
+        run: |
+          cd 03-frontend/angular-ecommerce/
+          zip release.zip ./* -r
 
       - name: Upload artifact for deployment job
         uses: actions/upload-artifact@v2
@@ -57,6 +59,6 @@ jobs:
         uses: azure/webapps-deploy@v2
         with:
           app-name: 'HclTechnologyStore'
-          slot-name: 'production'
-          publish-profile: ${{ secrets.AzureAppService_PublishProfile_0ed89b99bee74a4eae88548d5fe02bd2 }}
+          slot-name: 'Production'
+          publish-profile: ${{ secrets.AZUREAPPSERVICE_PUBLISHPROFILE_95C29BC161CA4AE984F3E0B12EABA9D4 }}
           package: .
