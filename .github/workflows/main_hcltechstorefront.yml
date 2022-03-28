@@ -1,14 +1,12 @@
 # Docs for the Azure Web Apps Deploy action: https://github.com/Azure/webapps-deploy
 # More GitHub Actions for Azure: https://github.com/Azure/actions
 
-name: Build and deploy Node.js app to Azure Web App - hcltechnologystore
+name: Build and deploy Node.js app to Azure Web App - hcltechstorefront
 
 on:
   push:
     branches:
       - main
-    paths:
-      -'03-frontend/angular-ecommerce/**'
   workflow_dispatch:
 
 jobs:
@@ -25,15 +23,15 @@ jobs:
 
       - name: npm install, build, and test
         run: |
-          cd 03-frontend/angular-ecommerce
           npm install
-          npm run build --production
+          npm run build --if-present
+          npm run test --if-present
 
       - name: Upload artifact for deployment job
         uses: actions/upload-artifact@v2
         with:
           name: node-app
-          path: ./03-frontend/angular-ecommerce/dist/angular-ecommerce
+          path: .
 
   deploy:
     runs-on: ubuntu-latest
@@ -52,7 +50,7 @@ jobs:
         id: deploy-to-webapp
         uses: azure/webapps-deploy@v2
         with:
-          app-name: 'hcltechnologystore'
+          app-name: 'hcltechstorefront'
           slot-name: 'Production'
-          publish-profile: ${{ secrets.AZUREAPPSERVICE_PUBLISHPROFILE_F108ED8AF7CA4A448A8B1CB1A6477FDD }}
+          publish-profile: ${{ secrets.AZUREAPPSERVICE_PUBLISHPROFILE_E0F36EC8ACC24541B1CAF9F4EDE2206F }}
           package: .
