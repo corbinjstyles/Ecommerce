@@ -1,4 +1,5 @@
 [![Bugs](https://sonarcloud.io/api/project_badges/measure?project=charliensanchez_Ecommerce&metric=bugs)](https://sonarcloud.io/summary/new_code?id=charliensanchez_Ecommerce)
+[![Code Smells](https://sonarcloud.io/api/project_badges/measure?project=charliensanchez_Ecommerce&metric=code_smells)](https://sonarcloud.io/summary/new_code?id=charliensanchez_Ecommerce)
 [![Coverage](https://sonarcloud.io/api/project_badges/measure?project=charliensanchez_Ecommerce&metric=coverage)](https://sonarcloud.io/summary/new_code?id=charliensanchez_Ecommerce)
 [![Quality gate](https://sonarcloud.io/api/project_badges/quality_gate?project=charliensanchez_Ecommerce)](https://sonarcloud.io/summary/new_code?id=charliensanchez_Ecommerce)
 [![Reliability Rating](https://sonarcloud.io/api/project_badges/measure?project=charliensanchez_Ecommerce&metric=reliability_rating)](https://sonarcloud.io/summary/new_code?id=charliensanchez_Ecommerce)
