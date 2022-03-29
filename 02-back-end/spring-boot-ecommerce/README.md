@@ -1,2 +1,8 @@
+[![Bugs](https://sonarcloud.io/api/project_badges/measure?project=charliensanchez_Ecommerce&metric=bugs)](https://sonarcloud.io/summary/new_code?id=charliensanchez_Ecommerce)
 [![Coverage](https://sonarcloud.io/api/project_badges/measure?project=charliensanchez_Ecommerce&metric=coverage)](https://sonarcloud.io/summary/new_code?id=charliensanchez_Ecommerce)
+[![Quality Gate Status](https://sonarcloud.io/api/project_badges/measure?project=charliensanchez_Ecommerce&metric=alert_status)](https://sonarcloud.io/summary/new_code?id=charliensanchez_Ecommerce)
 [![Reliability Rating](https://sonarcloud.io/api/project_badges/measure?project=charliensanchez_Ecommerce&metric=reliability_rating)](https://sonarcloud.io/summary/new_code?id=charliensanchez_Ecommerce)
+[![Technical Debt](https://sonarcloud.io/api/project_badges/measure?project=charliensanchez_Ecommerce&metric=sqale_index)](https://sonarcloud.io/summary/new_code?id=charliensanchez_Ecommerce)
+[![Security Rating](https://sonarcloud.io/api/project_badges/measure?project=charliensanchez_Ecommerce&metric=security_rating)](https://sonarcloud.io/summary/new_code?id=charliensanchez_Ecommerce)
+[![Vulnerabilities](https://sonarcloud.io/api/project_badges/measure?project=charliensanchez_Ecommerce&metric=vulnerabilities)](https://sonarcloud.io/summary/new_code?id=charliensanchez_Ecommerce)
+[![Maintainability Rating](https://sonarcloud.io/api/project_badges/measure?project=charliensanchez_Ecommerce&metric=sqale_rating)](https://sonarcloud.io/summary/new_code?id=charliensanchez_Ecommerce)
