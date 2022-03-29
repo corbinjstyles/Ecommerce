@@ -1,0 +1,5 @@
+{
+    "java.configuration.updateBuildConfiguration": "interactive",
+    "appService.preDeployTask": "package:spring-boot-ecommerce",
+    "appService.deploySubpath": "target/spring-boot-ecommerce-0.0.1-SNAPSHOT.war"
+}

@@ -18,8 +18,8 @@ export class ProductListComponent implements OnInit {
    thePageNumber: number =1;
    thePageSize: number = 5;
    theTotalElements: number = 0;
-   previousKeyword: string = null;
-  
+   previousKeyword!: string;
+
 
   constructor(private ProductService: ProductService, private cartService: CartService, private route: ActivatedRoute) { }
 
@@ -61,7 +61,7 @@ export class ProductListComponent implements OnInit {
 
   }
   processResult() {
-    return data=> {
+    return (data: { _embedded: { products: Product[]; }; page: { number: number; size: number; totalElements: number; }; })=> {
       this.products = data._embedded.products;
       this.thePageNumber = data.page.number + 1;
       this.thePageSize = data.page.size;
@@ -82,7 +82,7 @@ export class ProductListComponent implements OnInit {
 
     this.previousKeyword = theKeyword;
     console.log(`keyword=${theKeyword}, thePageNumber=${this.thePageNumber}`);
-     
+
 
     this.ProductService.searchProductsPaginate(this.thePageNumber -1, this.thePageSize,theKeyword).subscribe(this.processResult());
   }
@@ -94,6 +94,6 @@ export class ProductListComponent implements OnInit {
     const theCartItem = new CartItem(theProduct);
 
     this.cartService.addToCart(theCartItem);
-    
+
   }
 }
