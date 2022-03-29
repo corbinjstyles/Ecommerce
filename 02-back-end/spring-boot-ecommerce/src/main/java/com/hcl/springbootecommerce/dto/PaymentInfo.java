@@ -9,3 +9,4 @@ public class PaymentInfo {
     private String receiptEmail;
 
 }
+//test

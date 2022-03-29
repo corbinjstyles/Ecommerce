@@ -31,7 +31,6 @@
               "node_modules/bootstrap/dist/css/bootstrap.min.css",
               "node_modules/@fortawesome/fontawesome-free/css/all.min.css",
               "node_modules/@okta/okta-signin-widget/dist/css/okta-sign-in.min.css"
-
             ],
             "scripts": []
           },
@@ -40,8 +39,8 @@
               "budgets": [
                 {
                   "type": "initial",
-                  "maximumWarning": "500kb",
-                  "maximumError": "1mb"
+                  "maximumWarning": "20mb",
+                  "maximumError": "10mb"
                 },
                 {
                   "type": "anyComponentStyle",
@@ -65,21 +64,16 @@
               "sourceMap": true,
               "namedChunks": true
             },
-            "qa":{
-
-            "fileReplacements":[
-              {
-                "replace": "src/environments/environment.ts",
-                "with": "src/environments/environment.qa.ts"
-              }
-            ]
-          }
+            "qa": {
+              "fileReplacements": [
+                {
+                  "replace": "src/environments/environment.ts",
+                  "with": "src/environments/environment.qa.ts"
+                }
+              ]
+            }
           },
-
           "defaultConfiguration": "production"
-
-
-
         },
         "serve": {
           "builder": "@angular-devkit/build-angular:dev-server",
@@ -90,15 +84,11 @@
             "development": {
               "browserTarget": "angular-ecommerce:build:development"
             },
-            "qa":{
-            "browserTarget": "angular-ecommerce:build:qa"
-          }
+            "qa": {
+              "browserTarget": "angular-ecommerce:build:qa"
+            }
           },
-
-
           "defaultConfiguration": "development"
-
-
         },
         "extract-i18n": {
           "builder": "@angular-devkit/build-angular:extract-i18n",
@@ -119,13 +109,24 @@
             ],
             "styles": [
               "src/styles.css"
-
             ],
             "scripts": []
+          }
+        },
+        "lint": {
+          "builder": "@angular-eslint/builder:lint",
+          "options": {
+            "lintFilePatterns": [
+              "src/**/*.ts",
+              "src/**/*.html"
+            ]
           }
         }
       }
     }
   },
-  "defaultProject": "angular-ecommerce"
+  "defaultProject": "angular-ecommerce",
+  "cli": {
+    "defaultCollection": "@angular-eslint/schematics"
+  }
 }
