@@ -33,7 +33,7 @@
                                 </div>
                                 <div class="col ml-4 mr-2">{{tempCartItem.quantity}}</div>
                                 <div class="col">
-                                  <div *ngIf="tempCartItem.unitsInStock < 1">
+                                  <div *ngIf="tempCartItem.unitsInStock > 1">
                                     <button (click)="decrementQuanitity(tempCartItem)" class="btn btn-info btn-sm">
                                         <i class="fas fa-minus"></i>
                                     </button>
