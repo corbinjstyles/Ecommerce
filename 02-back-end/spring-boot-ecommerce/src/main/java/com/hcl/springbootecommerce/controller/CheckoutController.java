@@ -33,7 +33,7 @@ public class CheckoutController {
 
         PurchaseResponse purchaseResponse = checkoutService.placeOrder(purchase);
         // logging 
-        log.info("Method accessed");
+       // log.info("Method accessed");
         return purchaseResponse;
     }
 
@@ -41,7 +41,7 @@ public class CheckoutController {
     public ResponseEntity<String> createPaymentIntent(@RequestBody PaymentInfo paymentInfo) throws StripeException{
 
         // logging 
-        log.info("paymentInfo.amount: " + paymentInfo.getAmount());
+       // log.info("paymentInfo.amount: " + paymentInfo.getAmount());
 
         PaymentIntent paymentIntent = checkoutService.createPaymentIntent(paymentInfo);
 
