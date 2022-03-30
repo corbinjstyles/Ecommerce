@@ -11,13 +11,16 @@ import { ProductService } from 'src/app/services/product.service';
   styleUrls: ['./product-details.component.css']
 })
 export class ProductDetailsComponent implements OnInit {
+
   product: Product = new Product();
+
   constructor(private productService: ProductService, private cartService: CartService, private route: ActivatedRoute) { }
 
   ngOnInit(): void {
     this.route.paramMap.subscribe(() =>{
       this.handleProductDetails();
     })
+
   }
   handleProductDetails() {
     const theProductId: number = +this.route.snapshot.paramMap.get('id');
@@ -26,10 +29,13 @@ export class ProductDetailsComponent implements OnInit {
         this.product = data;
       }
     )
+
   }
   addToCart(){
     console.log(`adding to cart: ${this.product.name}, ${this.product.unitPrice} `);
+    this.product.unitsInStock -=1;
     const theCartItem = new CartItem(this.product);
+
     this.cartService.addToCart(theCartItem);
 
 

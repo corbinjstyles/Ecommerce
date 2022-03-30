@@ -14,7 +14,7 @@ export class CartService {
 
   storage: Storage = sessionStorage;
 
-  constructor() { 
+  constructor() {
     let data = JSON.parse(this.storage.getItem('cartItems'));
 
     if(data!=null){
@@ -27,6 +27,8 @@ export class CartService {
 
   decrementQuanitity(theCartItem: CartItem){
     theCartItem.quantity--;
+    theCartItem.unitsInStock++;
+
     if(theCartItem.quantity === 0){
       this.remove(theCartItem);
     }
@@ -56,6 +58,7 @@ export class CartService {
     }
     if(alreadyExistsInCart){
       exisitingCartItem.quantity++;
+      exisitingCartItem.unitsInStock--;
 
     }
     else{

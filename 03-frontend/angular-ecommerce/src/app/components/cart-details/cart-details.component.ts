@@ -29,7 +29,7 @@ export class CartDetailsComponent implements OnInit {
       data => this.totalQuantity = data
     );
     this.cartService.computerCartTotals();
-    
+
   }
   incrementQuanitity(theCartItem: CartItem){
     this.cartService.addToCart(theCartItem);
