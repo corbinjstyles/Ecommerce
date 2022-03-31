@@ -61,16 +61,16 @@ public class CheckoutServiceImpl implements CheckoutService {
     
 
 
-       orderItems.forEach(item -> { 
+    //    orderItems.forEach(item -> { 
              
-                Product product = productRepository.getById(item.getProductId());
-                // product.setUnitsInStock(product.getUnitsInStock() - item.getQuantity());
+    //             Product product = productRepository.getById(item.getProductId());
+    //             // product.setUnitsInStock(product.getUnitsInStock() - item.getQuantity());
            
            
         
 
         
-        });
+    //     });
         orderItems.forEach(item -> order.add(item));
 
 
@@ -101,9 +101,7 @@ public class CheckoutServiceImpl implements CheckoutService {
 
     }
 
-    private Product findById(Long productId) {
-        return null;
-    }
+   
 
     private static String generateOrderTrackingNumber() {
         return UUID.randomUUID().toString();
