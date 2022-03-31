@@ -60,11 +60,11 @@ public class CheckoutServiceImpl implements CheckoutService {
         Set<OrderItem> orderItems = purchase.getOrderItems();
     
 
-        
+
        orderItems.forEach(item -> { 
              
                 Product product = productRepository.getById(item.getProductId());
-                product.setUnitsInStock(product.getUnitsInStock() - item.getQuantity());
+                // product.setUnitsInStock(product.getUnitsInStock() - item.getQuantity());
            
            
         

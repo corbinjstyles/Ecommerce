@@ -4,10 +4,9 @@
         <h3>{{ product.name }}</h3>
         <div class = "price"> {{product.unitPrice | currency: 'USD' }} </div>
         <div class = "inv"> Amount in Stock: {{product.unitsInStock }} </div>
-<<<<<<< Updated upstream
-=======
+
         <div *ngIf="this.product.unitsInStock > 0">
->>>>>>> Stashed changes
+
         <button (click)="addToCart()" class = "btn btn-primary btn-sm">Add to cart</button>
         </div>
         <div *ngIf="this.product.unitsInStock < 1">
