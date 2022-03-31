@@ -58,7 +58,7 @@ searchProducts(theKeyword: string): Observable<Product[]>{
 
   }
   updateProduct(id: any, data: any){
-    return this.httpClient.patch(`${this.baseUrl}/${id}`, `unitsInStock = ${data}`);
+    return this.httpClient.put<Product>(`${this.baseUrl}/${id}`, `unitsInStock = ${data}`).subscribe();
   }
 }
 
