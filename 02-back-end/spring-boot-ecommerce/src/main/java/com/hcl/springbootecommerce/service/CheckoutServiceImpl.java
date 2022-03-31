@@ -61,16 +61,10 @@ public class CheckoutServiceImpl implements CheckoutService {
     
 
 
-    //    orderItems.forEach(item -> { 
-             
-    //             Product product = productRepository.getById(item.getProductId());
-    //             // product.setUnitsInStock(product.getUnitsInStock() - item.getQuantity());
-           
-           
-        
-
-        
-    //     });
+        orderItems.forEach(item -> { 
+             Product product = productRepository.getById(item.getProductId());
+             product.setUnitsInStock(product.getUnitsInStock() - item.getQuantity());
+        });
         orderItems.forEach(item -> order.add(item));
 
 
