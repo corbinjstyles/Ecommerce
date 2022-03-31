@@ -58,6 +58,8 @@ public class CheckoutServiceImpl implements CheckoutService {
         order.setOrderTrackingNumber(orderTrackingNumber);
 
         Set<OrderItem> orderItems = purchase.getOrderItems();
+    
+
         
        orderItems.forEach(item -> { 
              
