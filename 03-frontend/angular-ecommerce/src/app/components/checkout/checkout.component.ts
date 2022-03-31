@@ -210,11 +210,14 @@ this.cartItem = this.cartService.cartItems;
                 alert(`There was an error: ${result.error.message}`);
                 this.isDisabled = false;
               } else {
+                for(let i= 0; i < orderItems.length; i++ ){
+                   this.checkoutService.updateData(orderItems[i]);
+                }
                 this.checkoutService.placeOrder(purchase).subscribe(
                   {
                     next: (response: { orderTrackingNumber: any; }) => {
                       alert(`Your order hase been received. \nOrder tracking number: ${response.orderTrackingNumber}`);
-                      
+
                       this.resetCart();
                       this.isDisabled = false;
                     },
