@@ -13,6 +13,8 @@ import { Luv2ShopValidators } from 'src/app/validators/luv2-shop-validators';
 import { CartItem } from 'src/app/common/cart-item';
 import { environment } from 'src/environments/environment';
 import { PaymentInfo } from 'src/app/common/payment-info';
+import { Product } from 'src/app/common/product';
+import { ProductService } from 'src/app/services/product.service';
 
 @Component({
   selector: 'app-checkout',
@@ -43,7 +45,7 @@ export class CheckoutComponent implements OnInit {
   isDisabled: boolean = false;
 
 
-  constructor(private formBuilder: FormBuilder, private luv2ShopFormService: Luv2ShopFormService, private cartService: CartService, private checkoutService: CheckoutService, private router: Router) { }
+  constructor(private formBuilder: FormBuilder, private luv2ShopFormService: Luv2ShopFormService, private cartService: CartService, private checkoutService: CheckoutService, private router: Router, private products: ProductService) { }
 
   ngOnInit(): void {
 
@@ -211,7 +213,10 @@ this.cartItem = this.cartService.cartItems;
                 this.isDisabled = false;
               } else {
                 for(let i= 0; i < orderItems.length; i++ ){
-                   this.checkoutService.updateData(orderItems[i]);
+                   this.products.getProduct(orderItems[i].productId).subscribe((result: any)=>
+                   console.log(result))
+                   this.products.updateProduct(orderItems[i].productId, orderItems[i].quantity).subscribe((result)=>
+                   console.log(result))
                 }
                 this.checkoutService.placeOrder(purchase).subscribe(
                   {
