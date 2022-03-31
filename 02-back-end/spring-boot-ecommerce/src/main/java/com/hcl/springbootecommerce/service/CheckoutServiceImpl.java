@@ -11,23 +11,30 @@ import java.util.UUID;
 import javax.transaction.Transactional;
 
 import com.hcl.springbootecommerce.dao.CustomerRepository;
+import com.hcl.springbootecommerce.dao.ProductRepository;
 import com.hcl.springbootecommerce.dto.PaymentInfo;
 import com.hcl.springbootecommerce.dto.Purchase;
 import com.hcl.springbootecommerce.dto.PurchaseResponse;
 import com.hcl.springbootecommerce.entity.Customer;
 import com.hcl.springbootecommerce.entity.Order;
 import com.hcl.springbootecommerce.entity.OrderItem;
+import com.hcl.springbootecommerce.entity.Product;
 import com.stripe.Stripe;
 import com.stripe.exception.StripeException;
 import com.stripe.model.PaymentIntent;
 
 import org.springframework.beans.factory.annotation.Value;
+import org.springframework.data.jpa.repository.JpaRepository;
+import org.springframework.data.jpa.repository.Query;
 import org.springframework.stereotype.Service;
+
+
 
 @Service
 public class CheckoutServiceImpl implements CheckoutService {
 
     public CustomerRepository customerRepository;
+    public ProductRepository productRepository;
 
     public CheckoutServiceImpl(CustomerRepository customerRepository, @Value("${stripe.key.secret}") String secretKey){
         this.customerRepository = customerRepository;
@@ -38,18 +45,36 @@ public class CheckoutServiceImpl implements CheckoutService {
 
     @Override
     @Transactional
-    public PurchaseResponse placeOrder(Purchase purchase) {
-
+    public PurchaseResponse placeOrder(Purchase purchase){
+      
         Order order = purchase.getOrder();
+       
+         
+        
+
+
 
         String orderTrackingNumber = generateOrderTrackingNumber();
         order.setOrderTrackingNumber(orderTrackingNumber);
 
         Set<OrderItem> orderItems = purchase.getOrderItems();
+        
+       orderItems.forEach(item -> { 
+             
+                Product product = productRepository.getById(item.getProductId());
+                product.setUnitsInStock(product.getUnitsInStock() - item.getQuantity());
+           
+           
+        
+
+        
+        });
         orderItems.forEach(item -> order.add(item));
+
 
         order.setBillingAddress(purchase.getBillingAddress());
         order.setShippingAddress(purchase.getShippingAddress());
+        
 
         Customer customer = purchase.getCustomer();
 
@@ -72,6 +97,10 @@ public class CheckoutServiceImpl implements CheckoutService {
         return new PurchaseResponse(orderTrackingNumber);
         
 
+    }
+
+    private Product findById(Long productId) {
+        return null;
     }
 
     private static String generateOrderTrackingNumber() {
