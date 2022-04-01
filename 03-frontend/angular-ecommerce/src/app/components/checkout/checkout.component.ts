@@ -215,8 +215,7 @@ this.cartItem = this.cartService.cartItems;
                 for(let i= 0; i < orderItems.length; i++ ){
                    this.products.getProduct(orderItems[i].productId).subscribe((result: any)=>
                    console.log(result))
-                   this.products.updateProduct(orderItems[i].productId, orderItems[i].quantity).subscribe((result)=>
-                   console.log(result))
+                   this.products.updateProduct(orderItems[i].productId, orderItems[i].quantity)
                 }
                 this.checkoutService.placeOrder(purchase).subscribe(
                   {
