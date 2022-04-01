@@ -35,8 +35,8 @@ export class CheckoutService {
     return this.updateProducts(searchUrl, orderItems);
   }
   updateProducts(searchUrl: string, orderItems: OrderItem): Observable<any> {
-    
-    return this.httpClient.patch<Product>(searchUrl, {'unitsInStock': orderItems.quantity });
+
+    return this.httpClient.put(searchUrl, {'unitsInStock': orderItems.quantity });
   }
 
   createPaymentIntent(paymentInfo: PaymentInfo): Observable<any>{

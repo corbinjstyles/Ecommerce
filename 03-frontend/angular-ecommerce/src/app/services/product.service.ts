@@ -57,8 +57,8 @@ searchProducts(theKeyword: string): Observable<Product[]>{
     return this.httpClient.get<Product>(productUrl);
 
   }
-  updateProduct(id: any, data: any){
-    return this.httpClient.put<Product>(`${this.baseUrl}/${id}`, `unitsInStock = ${data}`).subscribe();
+  updateProduct(id: any, data: any): Observable<any>{
+    return this.httpClient.put(`${this.baseUrl}/${id}`, {'unitsInStock': data });
   }
 }
 
