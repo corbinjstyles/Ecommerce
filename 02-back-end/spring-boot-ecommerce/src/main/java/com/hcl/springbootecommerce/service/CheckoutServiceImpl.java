@@ -90,6 +90,23 @@ public class CheckoutServiceImpl implements CheckoutService {
 
     }
 
+    @Override
+    @Transactional
+    public void updateInv(Purchase purchase){
+
+    Order order = purchase.getOrder();
+    ProductRepository productRepository;
+
+
+    Set<OrderItem> orderItem = order.getOrderItems();
+
+    orderItem.forEach(item -> {
+         
+        Product product = productRepository.getById(item.getProductId());
+        product.setUnitsInStock(product.getUnitsInStock() - item.getQuantity());
+    });
+    }
+
    
 
     private static String generateOrderTrackingNumber() {

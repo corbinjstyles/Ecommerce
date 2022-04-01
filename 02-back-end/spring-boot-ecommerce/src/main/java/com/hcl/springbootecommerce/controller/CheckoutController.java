@@ -39,6 +39,11 @@ public class CheckoutController {
         return purchaseResponse;
     }
 
+    @PutMapping("/inv")
+    public ResponseEntity<String> updateInv(@RequestBody Purchase purchase){
+        checkoutService.placeOrder(purchase)
+    }
+
     
 
     @PostMapping("/payment-intent")

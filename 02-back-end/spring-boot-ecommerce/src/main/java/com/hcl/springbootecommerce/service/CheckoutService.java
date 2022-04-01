@@ -10,6 +10,8 @@ public interface CheckoutService  {
 
      public PurchaseResponse placeOrder(Purchase purchase);
 
+     public void updateInv(Purchase purchase);
+
      PaymentIntent createPaymentIntent(PaymentInfo paymentInfo) throws StripeException;
 
 

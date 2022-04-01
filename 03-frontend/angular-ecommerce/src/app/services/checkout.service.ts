@@ -29,7 +29,7 @@ export class CheckoutService {
     return this.httpClient.post<Purchase>(this.purchaseUrl, purchase);
 
   }
-  updateData(orderItems : OrderItem): Observable<any>{
+  updateInv(orderItems : OrderItem): Observable<any>{
 
     const searchUrl = `${this.updateUrl}/${orderItems.productId}`;
     return this.updateProducts(searchUrl, orderItems);
