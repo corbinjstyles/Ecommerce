@@ -95,9 +95,7 @@ public class CheckoutServiceImpl implements CheckoutService {
     public void updateInv(Purchase purchase){
 
     Order order = purchase.getOrder();
-    ProductRepository productRepository;
-
-
+    
     Set<OrderItem> orderItem = order.getOrderItems();
 
     orderItem.forEach(item -> {
