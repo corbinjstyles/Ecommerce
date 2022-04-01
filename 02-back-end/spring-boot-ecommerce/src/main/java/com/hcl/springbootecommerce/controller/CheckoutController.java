@@ -40,8 +40,8 @@ public class CheckoutController {
     }
 
     @PutMapping("/inv")
-    public ResponseEntity<String> updateInv(@RequestBody Purchase purchase){
-        checkoutService.placeOrder(purchase)
+    public void updateInv(@RequestBody Purchase purchase){
+         checkoutService.updateInv(purchase);
     }
 
     
