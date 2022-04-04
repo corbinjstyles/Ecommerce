@@ -13,13 +13,14 @@ import { ProductService } from 'src/app/services/product.service';
 export class ProductDetailsComponent implements OnInit {
 
   product: Product = new Product();
-  stock: number = this.product.unitsInStock;
+  stock!: number;
 
   constructor(private productService: ProductService, private cartService: CartService, private route: ActivatedRoute) { }
 
   ngOnInit(): void {
     this.route.paramMap.subscribe(() =>{
       this.handleProductDetails();
+      this.stock = this.product.unitsInStock;
     })
 
 
