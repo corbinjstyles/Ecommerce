@@ -215,7 +215,7 @@ this.cartItem = this.cartService.cartItems;
               } else {
                 for(let i= 0; i < orderItems.length; i++ ){
                   let a: number = cartItems[i].unitsInStock
-                    this.products.getProduct(orderItems[i].productId);
+                  console.log(a);
                    this.products.updateProduct(orderItems[i].productId, a - 1).subscribe((result: any)=>
                    console.log(result));
                 }
