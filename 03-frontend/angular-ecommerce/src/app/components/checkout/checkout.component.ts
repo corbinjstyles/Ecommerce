@@ -34,6 +34,7 @@ export class CheckoutComponent implements OnInit {
   billingAddressStates: State[] = [];
   cartItem: CartItem[] = [];
   storage: Storage = sessionStorage;
+  product!: Product;
 
 
 
@@ -215,18 +216,25 @@ this.cartItem = this.cartService.cartItems;
               } else {
 
                 for(let i= 0; i < orderItems.length; i++ ){
-                  if(cartItems[i].quantity > cartItems[i].unitsInStock){
+                    this.products.getProduct(cartItems[i].id).subscribe((stocks: Product) => {
+                     this.product = stocks;
+
+                  }
+                  )
+                  if(cartItems[i].quantity > this.product.unitsInStock ){
 
                       alert(`There was an error: Not enough Items in stock. Please reduce cart item quantity to a qualified amount`);
                     this.isDisabled = false;
 
 
-                }
+                }else{
                   let a: number = cartItems[i].unitsInStock
                   console.log(a);
                    this.products.updateProduct(orderItems[i].productId, a).subscribe((result: any)=>
                    console.log(result));
                 }
+              }
+
                 this.checkoutService.placeOrder(purchase).subscribe(
                   {
                     next: (response: { orderTrackingNumber: any; }) => {

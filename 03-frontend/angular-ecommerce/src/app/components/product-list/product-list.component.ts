@@ -4,6 +4,7 @@ import { CartItem } from 'src/app/common/cart-item';
 import { Product } from 'src/app/common/product';
 import { CartService } from 'src/app/services/cart.service';
 import { ProductService } from 'src/app/services/product.service';
+import { resourceLimits } from 'worker_threads';
 
 @Component({
   selector: 'app-product-list',
@@ -19,6 +20,9 @@ export class ProductListComponent implements OnInit {
    thePageSize: number = 5;
    theTotalElements: number = 0;
    previousKeyword!: string;
+   product!: Product;
+   stock!: number;
+
 
 
   constructor(private ProductService: ProductService, private cartService: CartService, private route: ActivatedRoute) { }
@@ -37,6 +41,14 @@ export class ProductListComponent implements OnInit {
       this.handleListProducts();
     }
 
+
+  }
+  compareStock(product: Product){
+
+    this.ProductService.getProduct(product.id).subscribe((result: Product) => {
+          this.stock = result.unitsInStock
+    });
+  return this.stock;
 
   }
   handleListProducts(){
