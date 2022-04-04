@@ -19,7 +19,7 @@
                </div> -->
                <div *ngIf="products.length > 0">
                 <table class="table table-bordered">
-                   
+
                     <tr *ngFor = "let tempProduct of products">
                         <td>
                             <a routerLink="/products/{{ tempProduct.id }}">
@@ -33,9 +33,14 @@
                             <p>{{tempProduct.unitPrice | currency: 'USD'}} </p>
                         </td>
                         <td>
+                          <div *ngIf="tempProduct.unitsInStock > 0">
                    <button (click)="addToCart(tempProduct)" class="btn btn-info btn-sm">Add to cart</button>
-              
-               
+                  </div>
+                  <div *ngIf="tempProduct.unitsInStock <= 0">
+                    Item out of stock!
+                    </div>
+
+
            </td>
                     </tr></table></div>
 

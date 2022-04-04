@@ -216,8 +216,11 @@ this.cartItem = this.cartService.cartItems;
 
                 for(let i= 0; i < orderItems.length; i++ ){
                   if(cartItems[i].quantity > cartItems[i].unitsInStock){
-                    alert(`There was an error: Not enough Items in stock. Please reduce cart item quantity to a qaulified amount`);
-                    this.isDisabled = true;
+
+                      alert(`There was an error: Not enough Items in stock. Please reduce cart item quantity to a qualified amount`);
+                    this.isDisabled = false;
+
+
                 }
                   let a: number = cartItems[i].unitsInStock
                   console.log(a);
