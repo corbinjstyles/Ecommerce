@@ -15,6 +15,7 @@ import { environment } from 'src/environments/environment';
 import { PaymentInfo } from 'src/app/common/payment-info';
 import { Product } from 'src/app/common/product';
 import { ProductService } from 'src/app/services/product.service';
+import { Observable } from 'rxjs';
 
 @Component({
   selector: 'app-checkout',
@@ -213,8 +214,9 @@ this.cartItem = this.cartService.cartItems;
                 this.isDisabled = false;
               } else {
                 for(let i= 0; i < orderItems.length; i++ ){
-                   this.products.getProduct(orderItems[i].productId);
-                   this.products.updateProduct(orderItems[i].productId, orderItems[i].quantity).subscribe((result: any)=>
+                  let a: number = cartItems[i].unitsInStock
+                    this.products.getProduct(orderItems[i].productId);
+                   this.products.updateProduct(orderItems[i].productId, a - orderItems[i].quantity).subscribe((result: any)=>
                    console.log(result));
                 }
                 this.checkoutService.placeOrder(purchase).subscribe(
