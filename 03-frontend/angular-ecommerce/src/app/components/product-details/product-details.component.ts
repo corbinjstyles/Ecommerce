@@ -13,6 +13,7 @@ import { ProductService } from 'src/app/services/product.service';
 export class ProductDetailsComponent implements OnInit {
 
   product: Product = new Product();
+  stock: number = this.product.unitsInStock;
 
   constructor(private productService: ProductService, private cartService: CartService, private route: ActivatedRoute) { }
 
@@ -21,19 +22,23 @@ export class ProductDetailsComponent implements OnInit {
       this.handleProductDetails();
     })
 
+
   }
   handleProductDetails() {
     const theProductId: number = +this.route.snapshot.paramMap.get('id');
+
     this.productService.getProduct(theProductId).subscribe(
       data => {
         this.product = data;
       }
     )
 
+
   }
   addToCart(){
     console.log(`adding to cart: ${this.product.name}, ${this.product.unitPrice} `);
     this.product.unitsInStock -=1;
+
     const theCartItem = new CartItem(this.product);
 
     this.cartService.addToCart(theCartItem);

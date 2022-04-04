@@ -3,13 +3,13 @@
         <img src="{{ product.imageUrl }}" class="detail-img">
         <h3>{{ product.name }}</h3>
         <div class = "price"> {{product.unitPrice | currency: 'USD' }} </div>
-        <div class = "inv"> Amount in Stock: {{product.unitsInStock }} </div>
+        <div class = "inv"> Amount in Stock: {{stock }} </div>
 
-        <div *ngIf="this.product.unitsInStock > 0">
+        <div *ngIf="product.unitsInStock > 0">
 
         <button (click)="addToCart()" class = "btn btn-primary btn-sm">Add to cart</button>
         </div>
-        <div *ngIf="this.product.unitsInStock < 1">
+        <div *ngIf="product.unitsInStock < 1">
           This item is out of stock.
         </div>
 
