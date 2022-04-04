@@ -53,7 +53,9 @@ public class MyDataRestConfig implements RepositoryRestConfigurer {
 
         exposeIds(config);
 
-        allowedOrigins = cors.addMapping(config.getBasePath() + "/**").allowedOrigins(theAllowedOrigins);
+        allowedOrigins = cors.addMapping(config.getBasePath() + "/**").allowedOrigins(theAllowedOrigins).allowedMethods("GET", "POST", "PUT").allowedHeaders("*");
+
+        
 
     }
 
