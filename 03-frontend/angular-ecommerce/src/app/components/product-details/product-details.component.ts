@@ -20,7 +20,7 @@ export class ProductDetailsComponent implements OnInit {
   ngOnInit(): void {
     this.route.paramMap.subscribe(() =>{
       this.handleProductDetails();
-      this.stock = this.product.unitsInStock;
+
     })
 
 
@@ -31,6 +31,7 @@ export class ProductDetailsComponent implements OnInit {
     this.productService.getProduct(theProductId).subscribe(
       data => {
         this.product = data;
+        this.stock = this.product.unitsInStock;
       }
     )
 

@@ -3,7 +3,7 @@
         <img src="{{ product.imageUrl }}" class="detail-img">
         <h3>{{ product.name }}</h3>
         <div class = "price"> {{product.unitPrice | currency: 'USD' }} </div>
-        <div class = "inv"> Amount in Stock: {{stock }} </div>
+        <div class = "inv"> Amount in Stock: {{ this.stock }} </div>
 
         <div *ngIf="product.unitsInStock > 0">
 
