@@ -37,7 +37,7 @@
                           <div *ngIf="tempProduct.unitsInStock < compareStock(tempProduct)">
                    <button (click)="addToCart(tempProduct)" class="btn btn-info btn-sm">Add to cart</button>
                   </div>
-                  <div *ngIf="tempProduct.unitsInStock <= 0">
+                  <div *ngIf="tempProduct.unitsInStock >= compareStock(tempProduct)">
                     Item out of stock!
                     </div>
                   </td>
