@@ -46,6 +46,7 @@ const oktaAuth = new OktaAuth({
         issuer: 'https://dev-8144678.okta.com/oauth2/default',
         redirectUri: 'https://hcltechnologystore.azurewebsites.net/login/callback',
         scopes: ['openid', 'profile', 'email', 'groups']
+
 });
 
 const routes: Routes = [

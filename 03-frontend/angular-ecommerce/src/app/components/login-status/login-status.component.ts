@@ -40,11 +40,11 @@ export class LoginStatusComponent implements OnInit {
   getUserDetails() {
 
     if(this.isAuthenticated){
+    
       this.oktaAuth.getUser().then(
         (res) => {
           this.userFullName = res.name;
           this.storage2.setItem('name', res.name);
-          this.storage2.setItem('group', this.oktaAuth.getAccessToken()!);
 
           const theEmail = res.email;
 
