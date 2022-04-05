@@ -5,6 +5,7 @@ import { Router } from '@angular/router';
 import { OktaAuthModule, OktaAuthStateService, OKTA_AUTH } from '@okta/okta-angular';
 import { OktaAuth } from '@okta/okta-auth-js';
 
+
 @Component({
   selector: 'app-login-status',
   templateUrl: './login-status.component.html',
@@ -29,7 +30,7 @@ export class LoginStatusComponent implements OnInit {
 
         this.isAuthenticated= result;
         this.storage.setItem('isAuthenticated', this.oktaAuth.authStateManager._authState?.isAuthenticated!.toString()!)
-        
+
         console.log(result)
         this.getUserDetails();
       }
@@ -43,6 +44,7 @@ export class LoginStatusComponent implements OnInit {
         (res) => {
           this.userFullName = res.name;
           this.storage2.setItem('name', res.name);
+          this.storage2.setItem('group', this.oktaAuth.getAccessToken()!);
 
           const theEmail = res.email;
 
