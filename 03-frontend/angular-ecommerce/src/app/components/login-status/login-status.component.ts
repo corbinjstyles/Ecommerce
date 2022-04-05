@@ -21,27 +21,29 @@ export class LoginStatusComponent implements OnInit {
   constructor( @Inject(OKTA_AUTH)public oktaAuth: OktaAuth) { }
 
   ngOnInit(): void {
-  
-    
-    
+
+
+
     this.oktaAuth.authStateManager.subscribe(
       (result: any) => {
-       
+
         this.isAuthenticated= result;
         this.storage.setItem('isAuthenticated', this.oktaAuth.authStateManager._authState?.isAuthenticated!.toString()!)
+        
         console.log(result)
         this.getUserDetails();
       }
     );
-    
+
   }
   getUserDetails() {
-    
+
     if(this.isAuthenticated){
       this.oktaAuth.getUser().then(
         (res) => {
           this.userFullName = res.name;
           this.storage2.setItem('name', res.name);
+
           const theEmail = res.email;
 
           this.storage.setItem('userEmail', JSON.stringify(theEmail));
@@ -54,11 +56,11 @@ export class LoginStatusComponent implements OnInit {
   logout(){
     this.oktaAuth.signOut();
     this.storage.removeItem('userEmail');
-   
-    
+
+
   }
 
 }
 
- 
+
 
