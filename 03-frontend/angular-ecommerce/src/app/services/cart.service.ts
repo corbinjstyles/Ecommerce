@@ -66,13 +66,14 @@ export class CartService {
     else{
       this.cartItems.push(theCartItem);
     }
-    if(exisitingCartItem.unitsInStock - exisitingCartItem.quantity < 0){
-
-      this.productService.getProduct(exisitingCartItem.id).subscribe((result: Product) =>{
+    this.productService.getProduct(exisitingCartItem.id).subscribe((result: Product) =>{
           this.stock = result.unitsInStock;
       }
 
       );
+    if(this.stock - exisitingCartItem.quantity < 0){
+
+
       exisitingCartItem.quantity = this.stock;
       alert(`There are either no more items left in stock or you have the whole quantity of stock of that item in your cart!`);
 
