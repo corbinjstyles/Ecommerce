@@ -64,6 +64,11 @@ export class CartService {
     else{
       this.cartItems.push(theCartItem);
     }
+    if(exisitingCartItem.quantity >= exisitingCartItem.unitsInStock){
+      exisitingCartItem.quantity = exisitingCartItem.unitsInStock;
+      alert(`There are either no more items left in stock or you have the whole quantity of stock of that item in your cart!`);
+
+    }
     this.computerCartTotals();
   }
   computerCartTotals() {
