@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>CheckoutController.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">spring-boot-ecommerce</a> &gt; <a href="index.source.html" class="el_package">com.hcl.springbootecommerce.controller</a> &gt; <span class="el_source">CheckoutController.java</span></div><h1>CheckoutController.java</h1><pre class="source lang-java linenums">package com.hcl.springbootecommerce.controller;
+
+import com.hcl.springbootecommerce.dto.PaymentInfo;
+import com.hcl.springbootecommerce.dto.Purchase;
+import com.hcl.springbootecommerce.dto.PurchaseResponse;
+import com.hcl.springbootecommerce.service.CheckoutService;
+import com.stripe.exception.StripeException;
+import com.stripe.model.PaymentIntent;
+
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
+//import org.springframework.web.bind.annotation.CrossOrigin;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.PutMapping;
+import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RestController;
+
+import lombok.extern.log4j.Log4j2;
+
+<span class="fc" id="L21">@Log4j2</span>
+@RestController
+@RequestMapping(&quot;/api/checkout&quot;)
+public class CheckoutController {
+
+    public CheckoutService checkoutService;
+
+<span class="fc" id="L28">    public CheckoutController(CheckoutService checkoutService){</span>
+<span class="fc" id="L29">        this.checkoutService = checkoutService;</span>
+<span class="fc" id="L30">    }</span>
+
+    @PostMapping(&quot;/purchase&quot;)
+    public PurchaseResponse placeOrder(@RequestBody Purchase purchase){
+
+<span class="nc" id="L35">        PurchaseResponse purchaseResponse = checkoutService.placeOrder(purchase);</span>
+        
+        // logging 
+       // log.info(&quot;Method accessed&quot;);
+<span class="nc" id="L39">        return purchaseResponse;</span>
+    }
+    
+
+    @PostMapping(&quot;/payment-intent&quot;)
+    public ResponseEntity&lt;String&gt; createPaymentIntent(@RequestBody PaymentInfo paymentInfo) throws StripeException{
+
+        // logging 
+       // log.info(&quot;paymentInfo.amount: &quot; + paymentInfo.getAmount());
+
+<span class="nc" id="L49">        PaymentIntent paymentIntent = checkoutService.createPaymentIntent(paymentInfo);</span>
+
+<span class="nc" id="L51">        String paymentStr = paymentIntent.toJson();</span>
+        
+<span class="nc" id="L53">        return new ResponseEntity&lt;&gt;(paymentStr, HttpStatus.OK);</span>
+
+    }
+
+    
+    
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.eclemma.org/jacoco">JaCoCo</a> 0.7.7.201606060606</span></div></body></html>

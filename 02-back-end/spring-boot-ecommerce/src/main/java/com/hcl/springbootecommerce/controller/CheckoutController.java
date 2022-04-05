@@ -38,12 +38,6 @@ public class CheckoutController {
        // log.info("Method accessed");
         return purchaseResponse;
     }
-
-    @PutMapping("/inv")
-    public void updateInv(@RequestBody Purchase purchase){
-         checkoutService.updateInv(purchase);
-    }
-
     
 
     @PostMapping("/payment-intent")
