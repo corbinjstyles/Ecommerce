@@ -1,6 +1,8 @@
 import { Injectable } from '@angular/core';
 import { BehaviorSubject, Subject } from 'rxjs';
 import { CartItem } from '../common/cart-item';
+import { Product } from '../common/product';
+import { ProductService } from './product.service';
 
 @Injectable({
   providedIn: 'root'
@@ -8,13 +10,13 @@ import { CartItem } from '../common/cart-item';
 export class CartService {
 
   cartItems: CartItem[]= [];
-
+  stock!: number;
   totalPrice: Subject<number> = new BehaviorSubject<number>(0);
   totalQuantity: Subject<number> = new BehaviorSubject<number>(0);
 
   storage: Storage = sessionStorage;
 
-  constructor() {
+  constructor(private productService: ProductService) {
     let data = JSON.parse(this.storage.getItem('cartItems'));
 
     if(data!=null){
@@ -64,8 +66,14 @@ export class CartService {
     else{
       this.cartItems.push(theCartItem);
     }
-    if(exisitingCartItem.quantity >= exisitingCartItem.unitsInStock){
-      exisitingCartItem.quantity = exisitingCartItem.unitsInStock;
+    if(exisitingCartItem.unitsInStock - exisitingCartItem.quantity < 0){
+
+      this.productService.getProduct(exisitingCartItem.id).subscribe((result: Product) =>{
+          this.stock = result.unitsInStock;
+      }
+
+      );
+      exisitingCartItem.quantity = this.stock;
       alert(`There are either no more items left in stock or you have the whole quantity of stock of that item in your cart!`);
 
     }
