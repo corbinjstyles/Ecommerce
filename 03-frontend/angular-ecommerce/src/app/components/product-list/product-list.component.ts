@@ -22,7 +22,8 @@ export class ProductListComponent implements OnInit {
    previousKeyword!: string;
    product!: Product;
    stock!: number;
-
+   cartItems!: CartItem[];
+   storage: Storage = sessionStorage;
 
 
   constructor(private ProductService: ProductService, private cartService: CartService, private route: ActivatedRoute) { }
@@ -40,15 +41,6 @@ export class ProductListComponent implements OnInit {
     else{
       this.handleListProducts();
     }
-
-
-  }
-  compareStock(product: Product){
-
-    this.ProductService.getProduct(product.id).subscribe((result: Product) => {
-          this.stock = result.unitsInStock
-    });
-  return this.stock;
 
   }
   handleListProducts(){
@@ -103,6 +95,7 @@ export class ProductListComponent implements OnInit {
 
     console.log(`Adding to cart: ${theProduct.name}, ${theProduct.unitPrice}`);
     theProduct.unitsInStock--;
+
     const theCartItem = new CartItem(theProduct);
 
     this.cartService.addToCart(theCartItem);
