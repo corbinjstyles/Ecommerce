@@ -48,7 +48,9 @@ export class LoginStatusComponent implements OnInit {
 
 
           const theEmail = res.email;
-          const theGroups = res.groups;
+          const theGroups = res['groups'];
+          
+          this.storage.setItem('theGroups', JSON.stringify(theGroups));
 
           this.storage.setItem('userEmail', JSON.stringify(theEmail));
           console.log(res);
