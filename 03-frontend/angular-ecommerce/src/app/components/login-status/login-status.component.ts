@@ -2,7 +2,7 @@ import { TokenizeResult } from '@angular/compiler/src/ml_parser/lexer';
 import { Component, Inject, OnInit } from '@angular/core';
 import { inject } from '@angular/core/testing';
 import { Router } from '@angular/router';
-import { OktaAuthModule, OktaAuthStateService, OKTA_AUTH } from '@okta/okta-angular';
+import { OktaAuthModule, OKTA_AUTH } from '@okta/okta-angular';
 import { OktaAuth } from '@okta/okta-auth-js';
 
 
