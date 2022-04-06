@@ -49,8 +49,12 @@ export class LoginStatusComponent implements OnInit {
 
           const theEmail = res.email;
           const theGroups = res['groups'];
-          
+
           this.storage.setItem('theGroups', JSON.stringify(theGroups));
+          if(this.storage.getItem('theGroups')?.includes("Admins")){
+            console.log("hey this is a true statement for the groups")
+          }
+
 
           this.storage.setItem('userEmail', JSON.stringify(theEmail));
           console.log(res);

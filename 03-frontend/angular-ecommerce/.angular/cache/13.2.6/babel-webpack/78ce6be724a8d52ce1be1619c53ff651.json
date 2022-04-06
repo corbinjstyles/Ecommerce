@@ -1,0 +1,1 @@
+{"ast":null,"code":"export default {\n  oidc: {\n    clientId: '0oa43nbpf2qPTBzAH5d7',\n    issuer: 'https://dev-8144678.okta.com/oauth2/default',\n    redirectUri: 'https://hcltechnologystore.azurewebsites.net/login/callback',\n    scopes: ['openid', 'profile', 'email', 'groups']\n  }\n};","map":null,"metadata":{},"sourceType":"module"}
