@@ -6,7 +6,7 @@
     <button *ngIf="!this.oktaAuth.authStateManager._authState?.isAuthenticated" routerLink="/login" class="security-btn">Login</button>
     <button *ngIf="this.oktaAuth.authStateManager._authState?.isAuthenticated" (click)="logout()" class="security-btn">Logout</button>
     <button *ngIf="this.oktaAuth.authStateManager._authState?.isAuthenticated" routerLink="/members" class="security-btn ml-1">Member</button>
-    <button *ngIf="this.oktaAuth.authStateManager._authState?.isAuthenticated && this.storage.getItem('theGroups')?.includes('Admins')" routerLink="/members" class="security-btn ml-1">Admin Portal</button>
+    <button *ngIf="this.oktaAuth.authStateManager._authState?.isAuthenticated && this.storage.getItem('theGroups')?.includes('Admins')" routerLink="/admins" class="security-btn ml-1">Admin Portal</button>
     <button *ngIf="this.oktaAuth.authStateManager._authState?.isAuthenticated" routerLink="/order-history" class="security-btn ml-1">Orders</button>
 
 
