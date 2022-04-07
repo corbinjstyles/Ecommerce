@@ -66,12 +66,8 @@
       <scope>test</scope> 
     </dependency> 
 
-    <!-- https://mvnrepository.com/artifact/com.splunk.logging/splunk-library-javalogging -->
-    <dependency> 
-      <groupId>com.splunk.logging</groupId> 
-      <artifactId>splunk-library-javalogging</artifactId> 
-      <version>1.8.0</version> 
-  </dependency> 
+    
+    
 
 
     <dependency>
