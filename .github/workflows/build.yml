@@ -7,6 +7,7 @@ on:
      - '02-back-end/spring-boot-ecommerce/**'
   pull_request:
     types: [opened, synchronize, reopened]
+  workflow_dispatch:
 jobs:
   build:
     name: Build
