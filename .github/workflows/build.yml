@@ -4,7 +4,7 @@ on:
     branches:
       - main
     paths:
-     - '02-back-end/spring-boot-ecommerce'
+     - '02-back-end/spring-boot-ecommerce/**'
   pull_request:
     types: [opened, synchronize, reopened]
 jobs:
