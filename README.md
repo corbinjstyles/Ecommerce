@@ -9,4 +9,4 @@
 [![Security Rating](https://sonarcloud.io/api/project_badges/measure?project=ChristCrom_Ecommerce&metric=security_rating)](https://sonarcloud.io/summary/new_code?id=ChristCrom_Ecommerce)
 [![Technical Debt](https://sonarcloud.io/api/project_badges/measure?project=ChristCrom_Ecommerce&metric=sqale_index)](https://sonarcloud.io/summary/new_code?id=ChristCrom_Ecommerce)
 [![Vulnerabilities](https://sonarcloud.io/api/project_badges/measure?project=ChristCrom_Ecommerce&metric=vulnerabilities)](https://sonarcloud.io/summary/new_code?id=ChristCrom_Ecommerce)
-//
+
