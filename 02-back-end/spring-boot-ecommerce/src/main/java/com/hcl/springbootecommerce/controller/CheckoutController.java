@@ -35,7 +35,7 @@ public class CheckoutController {
         PurchaseResponse purchaseResponse = checkoutService.placeOrder(purchase);
         
         // logging 
-       // log.info("Method accessed");
+        log.info("Method accessed");
         return purchaseResponse;
     }
     

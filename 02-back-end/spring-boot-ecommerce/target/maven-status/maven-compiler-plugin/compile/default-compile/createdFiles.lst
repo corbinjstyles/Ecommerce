@@ -1,6 +1,7 @@
 com\hcl\springbootecommerce\dto\PaymentInfo.class
 com\hcl\springbootecommerce\SpringBootEcommerceApplication.class
 com\hcl\springbootecommerce\config\MyAppConfig.class
+com\hcl\springbootecommerce\controller\RequestController.class
 com\hcl\springbootecommerce\config\SecurityConfig.class
 com\hcl\springbootecommerce\service\CheckoutServiceImpl.class
 com\hcl\springbootecommerce\entity\State.class
