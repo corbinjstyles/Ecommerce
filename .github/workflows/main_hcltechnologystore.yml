@@ -4,7 +4,7 @@
 name: Build and deploy Node.js app to Azure Web App - hcltechnologystore
 
 on:
-  pull_request:
+  branch_protection_rule:
     branches:
       - main
     paths:
