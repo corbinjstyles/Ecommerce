@@ -8,6 +8,11 @@ on:
     branches: [main]
     paths:
       -'03-frontend/angular-ecommerce/**'
+  pull_request: 
+    branches: [main]
+    paths:
+      -'03-frontend/angular-ecommerce/**'
+    
  
 
 jobs:
