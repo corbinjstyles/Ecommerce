@@ -9,7 +9,7 @@ on:
       - main
     paths:
       -'03-frontend/angular-ecommerce/**'
-  workflow_dispatch:
+ 
 
 jobs:
   build:
