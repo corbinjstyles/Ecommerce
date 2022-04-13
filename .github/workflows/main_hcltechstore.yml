@@ -13,6 +13,7 @@ on:
       - main
     paths:
       -'02-back-end/spring-boot-ecommerce/**'
+    types: [opened, synchronize, reopened]
 
 
 jobs:
