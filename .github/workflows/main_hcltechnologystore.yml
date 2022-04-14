@@ -9,7 +9,7 @@ on:
     branches:
      - main
     paths:
-      -"03-frontend\angular-ecommerce\**"
+      -"03-frontend/angular-ecommerce/**"
     
  
 
