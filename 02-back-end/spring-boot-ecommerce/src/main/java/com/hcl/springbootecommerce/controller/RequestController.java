@@ -32,7 +32,7 @@ public class RequestController {
 
     @RequestMapping(value = "/elk")
     public String helloWorld() {
-        String response = "Welcome to JavaInUse" + new Date();
+        String response = "Welcome to our Final Demo For our ecommerce project HCLTechnologyStore " + new Date();
         LOG.log(Level.INFO, response);
     
 
