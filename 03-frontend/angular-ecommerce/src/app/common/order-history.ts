@@ -5,4 +5,5 @@ export class OrderHistory {
     totalPrice!: number;
     totalQuantity!: number;
     dateCreated!: Date;
+    number!: Number;
 }
