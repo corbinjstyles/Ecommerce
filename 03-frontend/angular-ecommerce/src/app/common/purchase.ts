@@ -10,5 +10,5 @@ export class Purchase {
     billingAddress!: Address;
     order!: Order;
     orderItems!: OrderItem[];
-    number!: number;
+    
 }
