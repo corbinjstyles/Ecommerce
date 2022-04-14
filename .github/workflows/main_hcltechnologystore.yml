@@ -6,7 +6,7 @@ name: Build and deploy Node.js app to Azure Web App - hcltechnologystore
 on:
   push:
     paths:
-      -'03-frontend/angular-ecommerce/**'
+      -'03-frontend\angular-ecommerce\**'
     branches:
      - main
 
