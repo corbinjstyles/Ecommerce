@@ -4,11 +4,10 @@
 name: Build and deploy JAR app to Azure Web App - HclTechStore
 on:
   push:
-    paths: 
-     - '02-back-end/spring-boot-ecommerce/*'
     branches:
       - main
-
+    paths: 
+     - '02-back-end/spring-boot-ecommerce/*'
 
 jobs:
   build:
